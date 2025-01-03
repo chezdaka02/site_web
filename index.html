@@ -59,8 +59,10 @@
             <select name="fruitVariety" class="variety-select">
               <option value="">Sélectionnez une variété</option>
             </select>
-          <label>Quantité (kg)</label>
-          <input type="number" name="fruitQuantity" placeholder="Quantité (kg)" min="1">
+          <label>Quantité:</label>
+          <input type="number" name="fruitQuantity" placeholder="Quantité" min="1">
+          <label>Commentaire (calibre, quantité plus précise...) </label>
+          <input type="text" name="fruitComment" placeholder="Commentaire" >
           <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('fruits-column', 'fruitTemplate')"> + </button>
@@ -99,8 +101,10 @@
             <select name="legumeVariety" class="variety-select">
               <option value="">Sélectionnez une variété</option>
             </select>
-          <label>Quantité (kg)</label>
-          <input type="number" name="legumeQuantity" placeholder="Quantité (kg)" min="1">
+          <label>Quantité: </label>
+          <input type="number" name="legumeQuantity" placeholder="Quantité " min="1">
+          <label>Commentaire (calibre, quantité plus précise...) </label>
+          <input type="text" name="legumeComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('legumes-column', 'legumeTemplate')"> + </button>
@@ -130,8 +134,10 @@
           <select name="condimentVariety" class="variety-select">
             <option value="">Sélectionnez une variété</option>
           </select>
-          <label>Quantité (kg)</label>
-          <input type="number" name="condimentQuantity" placeholder="Quantité (kg)" min="1">
+          <label>Quantité:</label>
+          <input type="number" name="condimentQuantity" placeholder="Quantité" min="1">
+          <label>Commentaire (calibre, quantité plus précise...) </label>
+          <input type="text" name="condimentComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('condiments-column', 'condimentTemplate')"> + </button>
@@ -154,8 +160,10 @@
           <select name="fruitSecVariety" class="variety-select">
             <option value="">Sélectionnez une variété</option>
           </select>
-          <label>Quantité (kg)</label>
-          <input type="number" name="fruitSecQuantity" placeholder="Quantité (kg)" min="1">
+          <label>Quantité:</label>
+          <input type="number" name="fruitSecQuantity" placeholder="Quantité" min="1">
+          <label>Commentaire (calibre, quantité plus précise...) </label>
+          <input type="text" name="fruitSecComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('fruitsSecs-column', 'fruitSecTemplate')"> + </button>
@@ -183,8 +191,10 @@
           <select name="exotiqueVariety" class="variety-select">
             <option value="">Sélectionnez une variété</option>
           </select>
-          <label>Quantité (kg)</label>
-          <input type="number" name="exotiqueQuantity" placeholder="Quantité (kg)" min="1">
+          <label>Quantité:</label>
+          <input type="number" name="exotiqueQuantity" placeholder="Quantité" min="1">
+          <label>Commentaire (calibre, quantité plus précise...) </label>
+          <input type="text" name="exotiqueComment" placeholder="Commentaire" >
           <p> ------------------------------------ </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('exotiques-column', 'exotiqueTemplate')"> + </button>
@@ -336,7 +346,7 @@
 
     (function() {
       // Initialisation d'EmailJS avec votre clé publique (User ID)
-      emailjs.init("-QMpEh1ZaF4qdF-fy");  // Remplacez par votre User ID EmailJS
+      emailjs.init("-QMpEh1ZaF4qdF-fy");  /
     })();
 
     document.getElementById('orderForm').addEventListener('submit', function(event) {
@@ -352,9 +362,10 @@
       const type = product.querySelector('select[name="fruitType"]').value;
       const variety = product.querySelector('select[name="fruitVariety"]').value;
       const quantity = product.querySelector('input[name="fruitQuantity"]').value;
+      const comment = product.querySelector('input[name="fruitComment"]').value;
 
       if (type && quantity) {
-        fruits.push({ type, variety, quantity });
+        fruits.push({ type, variety, quantity,comment });
       }
     });
 
@@ -363,9 +374,10 @@
       const type = product.querySelector('select[name="legumeType"]').value;
       const variety = product.querySelector('select[name="legumeVariety"]').value;
       const quantity = product.querySelector('input[name="legumeQuantity"]').value;
+      const comment = product.querySelector('input[name="legumeComment"]').value;
 
       if (type && quantity) {
-        legumes.push({ type, variety, quantity });
+        legumes.push({ type, variety, quantity,comment });
       }
     });
 
@@ -374,9 +386,10 @@
       const type = product.querySelector('select[name="condimentType"]').value;
       const variety = product.querySelector('select[name="condimentVariety"]').value;
       const quantity = product.querySelector('input[name="condimentQuantity"]').value;
+      const comment = product.querySelector('input[name="condimentComment"]').value;
 
       if (type && quantity) {
-        condiments.push({ type, variety, quantity });
+        condiments.push({ type, variety, quantity,comment });
       }
     });
 
@@ -385,9 +398,10 @@
       const type = product.querySelector('select[name="fruitSecType"]').value;
       const variety = product.querySelector('select[name="fruitSecVariety"]').value;
       const quantity = product.querySelector('input[name="fruitSecQuantity"]').value;
+      const comment = product.querySelector('input[name="fruitSecComment"]').value;
 
       if (type && quantity) {
-        fruitsSec.push({ type, variety, quantity });
+        fruitsSec.push({ type, variety, quantity,comment });
       }
     });
 
@@ -396,9 +410,10 @@
       const type = product.querySelector('select[name="exotiqueType"]').value;
       const variety = product.querySelector('select[name="exotiqueVariety"]').value;
       const quantity = product.querySelector('input[name="exotiqueQuantity"]').value;
+      const comment = product.querySelector('input[name="exotiqueComment"]').value;
 
       if (type && quantity) {
-        fruitExotiques.push({ type, variety, quantity });
+        fruitExotiques.push({ type, variety, quantity,comment });
       }
     });
 
@@ -431,19 +446,19 @@
       Lieu de retrait : ${pickupLocation}
 
       Fruits :
-      ${fruits.map(fruit => `- ${fruit.type} (${fruit.variety || "Aucune variété"}) : ${fruit.quantity} kg`).join('\n')}
+      ${fruits.map(fruit => `- ${fruit.type} (${fruit.variety || "Aucune variété"}) : ${fruit.quantity} kg ${fruit.comment}`).join('\n')}
 
       Légumes :
-      ${legumes.map(legume => `- ${legume.type} (${legume.variety || "Aucune variété"}) : ${legume.quantity} kg`).join('\n')}
+      ${legumes.map(legume => `- ${legume.type} (${legume.variety || "Aucune variété"}) : ${legume.quantity} kg ${legume.comment}`).join('\n')}
 
       Condiments :
-      ${condiments.map(condiment => `- ${condiment.type} (${condiment.variety || "Aucune variété"}) : ${condiment.quantity} kg`).join('\n')}
+      ${condiments.map(condiment => `- ${condiment.type} (${condiment.variety || "Aucune variété"}) : ${condiment.quantity} kg ${condiment.comment}`).join('\n')}
 
       Fruits Sec:
-      ${fruitsSec.map(sec => `- ${sec.type} (${sec.variety || "Aucune variété"}) : ${sec.quantity} kg`).join('\n')}
+      ${fruitsSec.map(sec => `- ${sec.type} (${sec.variety || "Aucune variété"}) : ${sec.quantity} kg ${sec.comment}`).join('\n')}
 
       Fruits Exotiques:
-      ${fruitExotiques.map(exotique => `- ${exotique.type} (${exotique.variety || "Aucune variété"}) : ${exotique.quantity} kg`).join('\n')}
+      ${fruitExotiques.map(exotique => `- ${exotique.type} (${exotique.variety || "Aucune variété"}) : ${exotique.quantity} kg ${exotique.comment}`).join('\n')}
     `;
 
     const templateParams = {
