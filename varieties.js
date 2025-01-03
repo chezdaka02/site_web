@@ -11,7 +11,7 @@ const varieties = {
         "Canistel": [],
         "Carambole": [],
         "Cerise": ["Griottes", "Bigarreau", "Napoléon"],
-        "Citron": ["Jaune", "Vert"],
+        "Citron": ["Jaune", "Vert", "Feuille Italie", "Feuille Portugal", "Categorie 1", "Catégorie 2"],
         "Clémentine": [],
         "Coing": [],
         "Datte": ["Deglet Nour", "Medjool"],
@@ -71,11 +71,12 @@ const varieties = {
         "Thym": ["Citron", "Classique"]
       },
       fruitSec: {
-        "Amande": [],
+        "Amande": ["Grillé non salée","Grillée salée", "Nature", "Chocolat", "Caramel"],
+         "Wasabi": [],
         "Cajou": [],
-        "Noix": ["Classique", "Pécan"],
+        "Noix": ["Classique", "Pécan","Brésil","Macadamia","Mélange étudiant","Mélange sportif" ],
         "Noisette": [],
-        "Pistache": []
+        "Pistache": ["Grillé non salée","Grillée salée"]
       },
       exotique: {
         "Bissap": [],
