@@ -115,7 +115,7 @@ select {
   color: #2a572c; /* Vert foncé pour les titres de colonnes */
 }
 
-input[type="number"] {
+input {
   padding: 10px;
   margin-top: 5px;
   border: 2px solid #a0d5a8; /* Bordure verte claire */
@@ -127,7 +127,7 @@ input[type="number"] {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="number"]:focus {
+input:focus {
   border-color: #f98b33; /* Orange vif */
   box-shadow: 0 0 10px rgba(249, 139, 51, 0.3);
 }
