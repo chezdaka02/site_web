@@ -225,6 +225,11 @@
   <br>
 
   <div class="intro-card">
+    <h2>Date:</h2>
+    <div class="form-group">
+      <label for="orderDate">Sélectionnez une date :</label>
+      <input type="date" id="orderDate" name="orderDate" required>
+    </div>
     <h2>Type de Paiement</h2>
     <div class="form-group">
       <select id="paymentType" name="paymentType" required>
@@ -242,7 +247,6 @@
       <option value="Martigues">Livraison</option>
     </select>
   </div>
-
 
       <button type="submit">Valider la Commande</button>
     </form>
@@ -426,6 +430,7 @@
     // Récupérer les données client
     const customerName = document.getElementById('customerName').value;
     const businessName = document.getElementById('businessName').value;
+    const orderDate = document.getElementById('orderDate').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const paymentType = document.getElementById('paymentType').value;
@@ -442,6 +447,7 @@
       Email : ${email}
       Telephone: ${phone}
       Entreprise : ${businessName}
+      Livraison : ${orderDate}
       Paiement : ${paymentType}
       Lieu de retrait : ${pickupLocation}
 
