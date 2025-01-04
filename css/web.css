@@ -147,7 +147,7 @@ select {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(5, 1fr); /* Garantit 5 colonnes */
   gap: 20px;
 }
 
