@@ -325,14 +325,30 @@
       // Effacer les options existantes
       varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
       
+      //if (productType && varieties[type][productType]) {
+        //varieties[type][productType].forEach(variety => {
+          //const option = document.createElement('option');
+         // option.value = variety;
+         // option.textContent = variety;
+        //  varietySelect.appendChild(option);
+     //   });
+    //  }
       if (productType && varieties[type][productType]) {
         varieties[type][productType].forEach(variety => {
-          const option = document.createElement('option');
-          option.value = variety;
-          option.textContent = variety;
-          varietySelect.appendChild(option);
+            const option = document.createElement('option');
+            option.value = variety;
+
+            // Ajouter le prix si disponible
+            if (prices[type] && prices[type][productType] && prices[type][productType][variety]) {
+                const price = prices[type][productType][variety];
+                option.textContent = `${variety} (${price}€/kg)`;
+            } else {
+                option.textContent = variety;
+            }
+
+            varietySelect.appendChild(option);
         });
-      }
+    }
     }
 
     function addProduct(columnId, templateId) {
