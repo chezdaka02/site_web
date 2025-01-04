@@ -307,7 +307,6 @@
     function updateVarieties(selectElement, type) {
       const productType = selectElement.value; // Type de produit sélectionné (ex : "Abricot")
       const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
-      //const quantityInput = this.closest('.product-card').querySelector('.quantity-select');
 
       // Effacer les options existantes
       varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
@@ -318,19 +317,16 @@
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
               option.value = variety;
-              //if (quantityInput) {
-              //    quantityInput.value = 0; // Réinitialise la quantité
-              //}
   
               // Ajouter le prix si disponible
               const price = varieties[type][productType][variety];
               if (price) {
-                  option.textContent = `${variety} (${price}€/kg)`; // Exemple : "Rouge du Roussillon (5€/kg)"
+                  option.textContent = `${variety} (${price}€/kg)`; 
               } else {
-                  option.textContent = variety; // Si aucun prix, afficher seulement la variété
+                  option.textContent = variety; 
               }
   
-              varietySelect.appendChild(option); // Ajouter l'option au select
+              varietySelect.appendChild(option); 
           });
       }
   }
