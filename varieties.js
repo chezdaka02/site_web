@@ -91,3 +91,13 @@ const varieties = {
         "Ugli": []
       }
     };
+
+const prices = {
+    fruitSec: {
+        "Amande": { "Grillé non salée": 10, "Grillée salée": 12, "Nature": 8, "Chocolat": 15, "Caramel": 14 },
+        "Cajou": { "Grillé non salée": 18, "Nature": 16 },
+        "Noix": { "Classique": 12, "Pécan": 20, "Brésil": 18, "Macadamia": 25, "Mélange étudiant": 15, "Mélange sportif": 17 },
+        "Noisette": { "Grillé non salée": 13, "Nature": 11 },
+        "Pistache": { "Grillé non salée": 22, "Grillée salée": 24 }
+    }
+};
