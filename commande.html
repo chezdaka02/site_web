@@ -325,43 +325,6 @@
       }
     }
 
-    function populateVarieties(selectElement) {
-    const type = selectElement.value;
-    const varietySelect = selectElement.parentElement.querySelector('.variety-select');
-
-    // Réinitialiser les options de variété
-    varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
-
-    if (prices.fruitSec[type]) {
-        const varieties = Object.keys(prices.fruitSec[type]);
-        varieties.forEach(variety => {
-            const option = document.createElement('option');
-            option.value = variety;
-            option.textContent = `${variety} (${prices.fruitSec[type][variety]}€/kg)`;
-            varietySelect.appendChild(option);
-        });
-    }
-    updatePrice(varietySelect); // Met à jour le prix au cas où
-}
-
-// Fonction pour calculer et afficher le prix
-function updatePrice(element) {
-    const card = element.closest('.product-card');
-    const typeSelect = card.querySelector('.type-select').value;
-    const varietySelect = card.querySelector('.variety-select').value;
-    const quantity = parseFloat(card.querySelector('.quantity-input').value) || 0;
-    const priceDisplay = card.querySelector('.price-display');
-
-    // Vérifie si tout est sélectionné
-    if (typeSelect && varietySelect && prices.fruitSec[typeSelect][varietySelect]) {
-        const pricePerKg = prices.fruitSec[typeSelect][varietySelect];
-        const totalPrice = (pricePerKg * quantity).toFixed(2);
-        priceDisplay.textContent = `${totalPrice}€`;
-    } else {
-        priceDisplay.textContent = "0.00€";
-    }
-}
-
     function addProduct(columnId, templateId) {
       const column = document.getElementById(columnId);
       const template = document.getElementById(templateId);
