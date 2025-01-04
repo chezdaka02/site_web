@@ -339,8 +339,8 @@
             option.value = variety;
 
             // Ajouter le prix si disponible
-            if (prices[type] && prices[type][productType] && prices[type][productType][variety]) {
-                const price = prices[type][productType][variety];
+            if (varieties[type] && varieties[type][productType] && varieties[type][productType][variety]) {
+                const price = varieties[type][productType][variety];
                 option.textContent = `${variety} (${price}€/kg)`;
             } else {
                 option.textContent = variety;
