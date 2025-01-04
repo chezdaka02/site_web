@@ -70,7 +70,7 @@
               <option value="">Sélectionnez une variété</option>
             </select>
           <label>Quantité:</label>
-          <input type="number" name="fruitQuantity" placeholder="Quantité" min="1"><br><br>
+          <input type="number" name="fruitQuantity" class="quantity-select" placeholder="Quantité" min="1"><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="fruitComment" placeholder="Commentaire" >
           <p> --------------------------------------- </p>
@@ -112,7 +112,7 @@
               <option value="">Sélectionnez une variété</option>
             </select>
           <label>Quantité: </label>
-          <input type="number" name="legumeQuantity" placeholder="Quantité " min="1"><br><br>  
+          <input type="number" name="legumeQuantity" class="quantity-select" placeholder="Quantité " min="1"><br><br>  
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="legumeComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
@@ -145,7 +145,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="condimentQuantity" placeholder="Quantité" min="1"><br><br>  
+          <input type="number" name="condimentQuantity" class="quantity-select" placeholder="Quantité" min="1"><br><br>  
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="condimentComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
@@ -171,7 +171,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="fruitSecQuantity" placeholder="Quantité" min="1"><br><br>  
+          <input type="number" name="fruitSecQuantity" class="quantity-select" placeholder="Quantité" min="1"><br><br>  
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="fruitSecComment" placeholder="Commentaire" >
           <p> ---------------------------------------- </p>
@@ -202,7 +202,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="exotiqueQuantity" placeholder="Quantité" min="1"><br><br> 
+          <input type="number" name="exotiqueQuantity" class="quantity-select" placeholder="Quantité" min="1"><br><br> 
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="exotiqueComment" placeholder="Commentaire" >
           <p> ------------------------------------ </p>
@@ -305,31 +305,35 @@
 
    
     function updateVarieties(selectElement, type) {
-    const productType = selectElement.value; // Type de produit sélectionné (ex : "Abricot")
-    const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
-    
-    // Effacer les options existantes
-    varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
-    
-    // Vérifier si le type de produit et les variétés existent
-    if (productType && varieties[type][productType]) {
-        // Utiliser Object.keys pour itérer sur les propriétés de l'objet
-        Object.keys(varieties[type][productType]).forEach(variety => {
-            const option = document.createElement('option');
-            option.value = variety;
+      const productType = selectElement.value; // Type de produit sélectionné (ex : "Abricot")
+      const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
+      const quantityInput = this.closest('.product-card').querySelector('.quantity-select');
 
-            // Ajouter le prix si disponible
-            const price = varieties[type][productType][variety];
-            if (price) {
-                option.textContent = `${variety} (${price}€/kg)`; // Exemple : "Rouge du Roussillon (5€/kg)"
-            } else {
-                option.textContent = variety; // Si aucun prix, afficher seulement la variété
-            }
-
-            varietySelect.appendChild(option); // Ajouter l'option au select
-        });
-    }
-}
+      // Effacer les options existantes
+      varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
+      
+      // Vérifier si le type de produit et les variétés existent
+      if (productType && varieties[type][productType]) {
+          // Utiliser Object.keys pour itérer sur les propriétés de l'objet
+          Object.keys(varieties[type][productType]).forEach(variety => {
+              const option = document.createElement('option');
+              option.value = variety;
+              if (quantityInput) {
+                  quantityInput.value = 0; // Réinitialise la quantité
+              }
+  
+              // Ajouter le prix si disponible
+              const price = varieties[type][productType][variety];
+              if (price) {
+                  option.textContent = `${variety} (${price}€/kg)`; // Exemple : "Rouge du Roussillon (5€/kg)"
+              } else {
+                  option.textContent = variety; // Si aucun prix, afficher seulement la variété
+              }
+  
+              varietySelect.appendChild(option); // Ajouter l'option au select
+          });
+      }
+  }
 
 
     function addProduct(columnId, templateId) {
