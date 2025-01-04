@@ -169,7 +169,7 @@ input:focus {
   padding: 10px 20px;
 }
 .navbar img {
-  height: 50px;
+  height: 150px;
   border-radius: 10px;
 }
 .navbar .nav-links {
@@ -206,7 +206,7 @@ input:focus {
 }
 
 .navbar .logo-section img {
-  height: 50px;
+  height: 150px;
   border-radius: 10px;
 }
 
