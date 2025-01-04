@@ -303,38 +303,34 @@
       });
     });
 
+   
     function updateVarieties(selectElement, type) {
-      const productType = selectElement.value;
-      const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
-      
-      // Effacer les options existantes
-      varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
-      
-      //if (productType && varieties[type][productType]) {
-        //varieties[type][productType].forEach(variety => {
-          //const option = document.createElement('option');
-         // option.value = variety;
-         // option.textContent = variety;
-        //  varietySelect.appendChild(option);
-     //   });
-    //  }
-      if (productType && varieties[type][productType]) {
-        varieties[type][productType].forEach(variety => {
+    const productType = selectElement.value; // Type de produit sélectionné (ex : "Abricot")
+    const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
+    
+    // Effacer les options existantes
+    varietySelect.innerHTML = '<option value="">Sélectionnez une variété</option>';
+    
+    // Vérifier si le type de produit et les variétés existent
+    if (productType && varieties[type][productType]) {
+        // Utiliser Object.keys pour itérer sur les propriétés de l'objet
+        Object.keys(varieties[type][productType]).forEach(variety => {
             const option = document.createElement('option');
             option.value = variety;
 
             // Ajouter le prix si disponible
-            if (varieties[type] && varieties[type][productType] && varieties[type][productType][variety]) {
-                const price = varieties[type][productType][variety];
-                option.textContent = `${variety} (${price}€/kg)`;
+            const price = varieties[type][productType][variety];
+            if (price) {
+                option.textContent = `${variety} (${price}€/kg)`; // Exemple : "Rouge du Roussillon (5€/kg)"
             } else {
-                option.textContent = variety;
+                option.textContent = variety; // Si aucun prix, afficher seulement la variété
             }
 
-            varietySelect.appendChild(option);
+            varietySelect.appendChild(option); // Ajouter l'option au select
         });
     }
-    }
+}
+
 
     function addProduct(columnId, templateId) {
       const column = document.getElementById(columnId);
