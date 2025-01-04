@@ -318,9 +318,9 @@
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
               option.value = variety;
-              if (quantityInput) {
-                  quantityInput.value = 0; // Réinitialise la quantité
-              }
+              //if (quantityInput) {
+              //    quantityInput.value = 0; // Réinitialise la quantité
+              //}
   
               // Ajouter le prix si disponible
               const price = varieties[type][productType][variety];
