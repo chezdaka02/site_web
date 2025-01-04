@@ -1,5 +1,5 @@
   document.addEventListener('DOMContentLoaded', function () {
-    const visitCountElement = document.getElementById('dailyVisitCount');
+    const visitCountElement = document.getElementById('visit-count');
 
     // Obtenir les données actuelles stockées
     let storedDate = localStorage.getItem('visitDate');
@@ -18,7 +18,7 @@
     }
 
     // Sauvegarder le compteur dans localStorage
-    localStorage.setItem('dailyVisitCount', visitCount);
+    localStorage.setItem('visit-count', visitCount);
 
     // Mettre à jour l'affichage
     visitCountElement.textContent = visitCount;
