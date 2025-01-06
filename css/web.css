@@ -335,7 +335,7 @@ input:focus {
 /* ANIMATION */
 #actualite {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* 3 lignes verticales */
+  grid-template-rows: 1fr 1fr 1fr; /* 3 lignes verticales */
   gap: 20px;
   padding: 20px;
   border-radius: 10px;
