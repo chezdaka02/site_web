@@ -133,11 +133,6 @@ select {
   font-size: 1rem;
 }
 /* PAGE ACCUEIL */
-#actualite {
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #a0d5a8;
-}
 
 #locations {
   padding: 20px;
@@ -340,7 +335,7 @@ input:focus {
 /* ANIMATION */
 #actualite {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr); /* Garantit 3 colonnes */
   gap: 20px;
   padding: 20px;
   border-radius: 10px;
