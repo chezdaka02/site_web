@@ -337,3 +337,72 @@ input:focus {
   border: 2px solid #e08900;
 }
 
+/* ANIMATION */
+#actualite {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #a0d5a8;
+}
+
+/* Section Galerie */
+.gallery-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+.gallery-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.gallery-container img.active {
+  opacity: 1;
+}
+
+/* Section Promotions */
+#promotions {
+  text-align: center;
+  animation: fadeInOut 5s infinite; /* Apparition/disparition des promotions */
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Section Avis Clients */
+#testimonials {
+  text-align: center;
+  padding: 10px;
+}
+
+.testimonial {
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(0.95);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonial:hover {
+  transform: scale(1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
