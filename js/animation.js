@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let promotionIndex = 0;
 
   function updatePromotions() {
-    const promoCard = document.querySelector(".promo-card p");
+    const promoCard = document.querySelector(".promo p");
     promoCard.textContent = promotions[promotionIndex];
     promotionIndex = (promotionIndex + 1) % promotions.length;
   }
