@@ -1,5 +1,7 @@
   // Defilement images
 let galleryImages = document.querySelectorAll('.gallery-container img');
+console.log(galleryImages);
+
   let currentImageIndex = 0;
 
   // Vérifiez si des images sont présentes
