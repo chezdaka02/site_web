@@ -1,4 +1,3 @@
-  // Galerie : Rotation automatique des images
   let galleryImages = document.querySelectorAll('.gallery-container img');
   let currentImageIndex = 0;
 
