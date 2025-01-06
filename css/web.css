@@ -133,6 +133,12 @@ select {
   font-size: 1rem;
 }
 /* PAGE ACCUEIL */
+#actualite {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #a0d5a8;
+}
+
 #locations {
   padding: 20px;
   border-radius: 10px;
