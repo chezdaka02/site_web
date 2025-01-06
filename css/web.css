@@ -352,25 +352,25 @@ input:focus {
 
 
 /* Section Galerie */
-.gallery-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 200px;
-}
-
 .gallery-container img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+    position: absolute; /* Superpose les images */
+    top: 0;
+    left: 0;
+    width: 100%; /* Adapte les images à la taille du conteneur */
+    opacity: 0; /* Cache toutes les images */
+    transition: opacity 1s ease-in-out; /* Ajoute une transition douce */
 }
 
 .gallery-container img.active {
-  opacity: 1;
+    opacity: 1; /* Rends l'image active visible */
 }
+
+.gallery-container {
+    position: relative; /* Conteneur positionné pour superposer les images */
+    height: 300px; /* Hauteur du conteneur (ajustez selon vos besoins) */
+    overflow: hidden; /* Cache les débordements des images */
+}
+
 
 /* Section Promotions */
 #promotions {
