@@ -5,7 +5,6 @@ let galleryImages = document.querySelectorAll('.gallery-container img');
   // Vérifiez si des images sont présentes
   if (galleryImages.length === 0) {
     console.error('Aucune image trouvée dans .gallery-container');
-    return;
   }
 
   function rotateImages() {
