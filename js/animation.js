@@ -1,4 +1,5 @@
-  let galleryImages = document.querySelectorAll('.gallery-container img');
+let galleryImages = document.querySelectorAll('.gallery-container img');
+console.log(galleryImages); // Affichez le tableau pour vérifier
   let currentImageIndex = 0;
 
   function rotateImages() {
