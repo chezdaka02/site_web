@@ -19,7 +19,7 @@
   let promotionIndex = 0;
 
   function updatePromotions() {
-    const promoCard = document.querySelector("#promotions .promo-card p");
+    const promoCard = document.querySelector(".promo-card p");
     promoCard.textContent = promotions[promotionIndex];
     promotionIndex = (promotionIndex + 1) % promotions.length;
   }
