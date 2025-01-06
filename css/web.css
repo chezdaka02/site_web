@@ -335,12 +335,21 @@ input:focus {
 /* ANIMATION */
 #actualite {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Garantit 3 colonnes */
+  grid-template-columns: 1fr 1fr 1fr; /* 3 lignes verticales */
   gap: 20px;
   padding: 20px;
   border-radius: 10px;
   background-color: #a0d5a8;
 }
+
+/* Section individuelle (pour chaque élément de la grille) */
+#actualite > section {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
 
 /* Section Galerie */
 .gallery-container {
