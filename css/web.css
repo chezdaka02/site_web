@@ -373,7 +373,7 @@ input:focus {
 
 
 /* Section Promotions */
-#promotions {
+.promo {
   text-align: center;
   animation: fadeInOut 5s infinite; /* Apparition/disparition des promotions */
 }
