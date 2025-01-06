@@ -1,14 +1,26 @@
+  // Defilement images
 let galleryImages = document.querySelectorAll('.gallery-container img');
-console.log(galleryImages); // Affichez le tableau pour vérifier
   let currentImageIndex = 0;
 
+  // Vérifiez si des images sont présentes
+  if (galleryImages.length === 0) {
+    console.error('Aucune image trouvée dans .gallery-container');
+    return;
+  }
+
   function rotateImages() {
+    // Supprime la classe active de l'image actuelle
     galleryImages[currentImageIndex].classList.remove('active');
+
+    // Passe à l'image suivante (modulo pour revenir au début)
     currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+
+    // Ajoute la classe active à la nouvelle image
     galleryImages[currentImageIndex].classList.add('active');
   }
 
-  setInterval(rotateImages, 3000); // Change d'image toutes les 3 secondes
+  // Démarre la rotation des images toutes les 3 secondes
+  setInterval(rotateImages, 3000);
 
   // Promotions dynamiques
   const promotions = [
