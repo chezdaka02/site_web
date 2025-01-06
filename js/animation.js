@@ -1,4 +1,14 @@
+  // Galerie : Rotation automatique des images
+  let galleryImages = document.querySelectorAll('.gallery-container img');
+  let currentImageIndex = 0;
 
+  function rotateImages() {
+    galleryImages[currentImageIndex].classList.remove('active');
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    galleryImages[currentImageIndex].classList.add('active');
+  }
+
+  setInterval(rotateImages, 3000); // Change d'image toutes les 3 secondes
 
   // Promotions dynamiques
   const promotions = [
