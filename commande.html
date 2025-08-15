@@ -334,14 +334,15 @@
           // Utiliser Object.keys pour itérer sur les propriétés de l'objet
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
-              const price_html = document.getElementbyId('price'); 
+              const price_html = document.getElementById('price');
+              const quantity = document.getElementById('quantity'); 
               option.value = variety;
   
               // Ajouter le prix si disponible
               const price = varieties[type][productType][variety];
               if (price) {
                   option.textContent = `${variety} (${price}€/kg)`;
-                  total_product = variety*price;
+                  total_product = quantity*price;
                   price_html.textContent = `${total_product}€`;
               } else {
                   option.textContent = variety; 
@@ -409,7 +410,7 @@
     document.querySelectorAll('#fruits-column .product-card').forEach(product => {
       const type = product.querySelector('select[name="fruitType"]').value;
       const variety = product.querySelector('select[name="fruitVariety"]').value;
-      const quantity = product.querySelector('input[name="fruitQuantity"]').value;
+      const quantity = product.querySelector('input[name="quantity"]').value;
       const comment = product.querySelector('input[name="fruitComment"]').value;
       const price = product.querySelector('input[name="fruitPrice"]').value;
 
@@ -422,7 +423,7 @@
     document.querySelectorAll('#legumes-column .product-card').forEach(product => {
       const type = product.querySelector('select[name="legumeType"]').value;
       const variety = product.querySelector('select[name="legumeVariety"]').value;
-      const quantity = product.querySelector('input[name="legumeQuantity"]').value;
+      const quantity = product.querySelector('input[name="quantity"]').value;
       const comment = product.querySelector('input[name="legumeComment"]').value;
       const price = product.querySelector('input[name="legumePrice"]').value;
 
@@ -435,7 +436,7 @@
     document.querySelectorAll('#condiments-column .product-card').forEach(product => {
       const type = product.querySelector('select[name="condimentType"]').value;
       const variety = product.querySelector('select[name="condimentVariety"]').value;
-      const quantity = product.querySelector('input[name="condimentQuantity"]').value;
+      const quantity = product.querySelector('input[name="quantity"]').value;
       const comment = product.querySelector('input[name="condimentComment"]').value;
       const price = product.querySelector('input[name="condimentPrice"]').value;
 
@@ -448,7 +449,7 @@
     document.querySelectorAll('#fruitSecs-column .product-card').forEach(product => {
       const type = product.querySelector('select[name="fruitSecType"]').value;
       const variety = product.querySelector('select[name="fruitSecVariety"]').value;
-      const quantity = product.querySelector('input[name="fruitSecQuantity"]').value;
+      const quantity = product.querySelector('input[name="quantity"]').value;
       const comment = product.querySelector('input[name="fruitSecComment"]').value;
       const price = product.querySelector('input[name="fruitSecPrice"]').value;
 
@@ -461,7 +462,7 @@
     document.querySelectorAll('#exotiques-column .product-card').forEach(product => {
       const type = product.querySelector('select[name="exotiqueType"]').value;
       const variety = product.querySelector('select[name="exotiqueVariety"]').value;
-      const quantity = product.querySelector('input[name="exotiqueQuantity"]').value;
+      const quantity = product.querySelector('input[name="quantity"]').value;
       const comment = product.querySelector('input[name="exotiqueComment"]').value;
       const price = product.querySelector('input[name="exotiquePrice"]').value;
 
