@@ -71,10 +71,14 @@
               <option value="">Sélectionnez une variété</option>
             </select>
           <label>Quantité:</label>
-          <input type="number" name="fruitQuantity" placeholder="Quantité" min="1"><br><br>
+          <input type="number" name="fruitQuantity" class="quantity" placeholder="Quantité" min="1"><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="legumeComment" placeholder="Commentaire"><br><br>
-          <label>Prix: </label>
+          <div class="price">
+            <p>Prix total: 
+              <span class="price-value">0</span> €
+            </p>
+          </div>
           <span class="price"></span>
           <p> --------------------------------------- </p>
         </div>
@@ -115,7 +119,7 @@
               <option value="">Sélectionnez une variété</option>
             </select>
           <label>Quantité: </label>
-          <input type="number" name="legumeQuantity" placeholder="Quantité " min="1"><br><br> 
+          <input type="number" name="legumeQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="legumeComment" placeholder="Commentaire"><br><br>
           <label>Prix: </label>
@@ -150,7 +154,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="condimentQuantity" placeholder="Quantité" min="1"><br><br> 
+          <input type="number" name="condimentQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
           <label>Prix: </label>
           <input type="text" name="condimentPrice" readonly><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
@@ -178,7 +182,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="fruitSecQuantity" placeholder="Quantité" min="1"><br><br> 
+          <input type="number" name="fruitSecQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
           <label>Prix: </label>
           <input type="text" name="fruitSecPrice" readonly><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
@@ -211,7 +215,7 @@
             <option value="">Sélectionnez une variété</option>
           </select>
           <label>Quantité:</label>
-          <input type="number" name="exotiqueQuantity" placeholder="Quantité" min="1"><br><br> 
+          <input type="number" name="exotiqueQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
           <label>Prix: </label>
           <span class="price"></span>
           <label>Commentaire (calibre, quantité plus précise...) </label>
@@ -289,6 +293,7 @@
       document.querySelectorAll('select[name="fruitType"]').forEach(select => {
         select.addEventListener('change', function () {
           updateVarieties(this, 'fruit');
+          updatePrice('select[name="fruitType"]');
         });
       });
 
@@ -321,9 +326,22 @@
       });
     });
 
+    function updatePrice(varietySelect) {
+        const selectedOption = varietySelect.options[varietySelect.selectedIndex];
+        const pricePerKg = parseFloat(selectedOption.dataset.price || 0);
+        const card = varietySelect.closest('.product-card');
+        const quantityInput = card.querySelector('.quantity');
+        const priceSpan = card.querySelector('.price-value');
+    
+        quantityInput.addEventListener('input', () => {
+            const qty = parseFloat(quantityInput.value || 0);
+            priceSpan.textContent = (qty * pricePerKg).toFixed(2);
+        });
+    }
+
    
     function updateVarieties(selectElement, type) {
-      const productType = selectElement.value; // Type de produit sélectionné (ex : "Abricot")
+      const productType = selectElement.value;
       const varietySelect = selectElement.closest('.product-card').querySelector('.variety-select');
 
       // Effacer les options existantes
@@ -331,25 +349,16 @@
       
       // Vérifier si le type de produit et les variétés existent
       if (productType && varieties[type][productType]) {
-          // Utiliser Object.keys pour itérer sur les propriétés de l'objet
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
               option.value = variety;
-      
               const price = varieties[type][productType][variety];
               if (price) {
                   option.textContent = `${variety} (${price}€/kg)`;
-      
-                  const quantity = document.getElementById('quantity');
-                  const price_html = element.querySelector('.price');
-                  if (quantity && price_html){
-                    const total_product = quantity * price;
-                    price_html.textContent = `${total_product}€`;
-                  }
+                  option.dataset.price = price; // stocke le prix dans l’option
               } else {
                   option.textContent = variety;
               }
-      
               varietySelect.appendChild(option);
           });
       }
