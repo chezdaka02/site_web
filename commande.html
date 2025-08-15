@@ -334,7 +334,7 @@
           // Utiliser Object.keys pour itérer sur les propriétés de l'objet
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
-              const price_html = document.getElementById('price');
+              const price_html = element.querySelector('.price');
               option.value = variety;
       
               const price = varieties[type][productType][variety];
