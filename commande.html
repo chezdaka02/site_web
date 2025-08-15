@@ -334,12 +334,15 @@
           // Utiliser Object.keys pour itérer sur les propriétés de l'objet
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
+              const price_html = document.getElementbyId('price'); 
               option.value = variety;
   
               // Ajouter le prix si disponible
               const price = varieties[type][productType][variety];
               if (price) {
-                  option.textContent = `${variety} (${price}€/kg)`; 
+                  option.textContent = `${variety} (${price}€/kg)`;
+                  total_product = variety*price;
+                  price_html.textContent = `${total_product}€`;
               } else {
                   option.textContent = variety; 
               }
