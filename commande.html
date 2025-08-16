@@ -17,7 +17,6 @@
             <div class="nav-links">
                 <a href="index.html"><i class="fa-solid fa-house"></i></a>
                 <a href="commande.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                 <a href="faq.html"><i class="fa-solid fa-question-circle"></i></a>
             </div>
         </div>
     <h1> Commandez Maintenant</h1>
@@ -74,12 +73,6 @@
           <input type="number" name="fruitQuantity" class="quantity" placeholder="Quantité" min="1"><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="legumeComment" placeholder="Commentaire"><br><br>
-          <div class="price">
-            <p>Prix total: 
-              <span class="price-value">0</span> €
-            </p>
-          </div>
-          <span class="price"></span>
           <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('fruits-column', 'fruitTemplate')"> + Ajouter un élément supplémentaire </button>
@@ -122,9 +115,7 @@
           <input type="number" name="legumeQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
           <label>Commentaire (calibre, quantité plus précise...) </label>
           <input type="text" name="legumeComment" placeholder="Commentaire"><br><br>
-          <label>Prix: </label>
-          <span class="price"></span>
-          <p> ---------------------------------------- </p>
+          <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('legumes-column', 'legumeTemplate')"> + Ajouter un élément supplémentaire </button>
       </div>
@@ -155,11 +146,9 @@
           </select>
           <label>Quantité:</label>
           <input type="number" name="condimentQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
-          <label>Prix: </label>
-          <input type="text" name="condimentPrice" readonly><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
-          <input type="text" name="condimentComment" placeholder="Commentaire" >
-          <p> ---------------------------------------- </p>
+          <input type="text" name="condimentComment" placeholder="Commentaire" ><br><br>
+          <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('condiments-column', 'condimentTemplate')"> + Ajouter un élément supplémentaire </button>
       </div>
@@ -183,11 +172,9 @@
           </select>
           <label>Quantité:</label>
           <input type="number" name="fruitSecQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
-          <label>Prix: </label>
-          <input type="text" name="fruitSecPrice" readonly><br><br>
           <label>Commentaire (calibre, quantité plus précise...) </label>
-          <input type="text" name="fruitSecComment" placeholder="Commentaire" >
-          <p> ---------------------------------------- </p>
+          <input type="text" name="fruitSecComment" placeholder="Commentaire"><br><br>
+          <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('fruitsSecs-column', 'fruitSecTemplate')"> + Ajouter un élément supplémentaire </button>
       </div>
@@ -216,11 +203,9 @@
           </select>
           <label>Quantité:</label>
           <input type="number" name="exotiqueQuantity" class="quantity" placeholder="Quantité" min="1"><br><br> 
-          <label>Prix: </label>
-          <span class="price"></span>
           <label>Commentaire (calibre, quantité plus précise...) </label>
-          <input type="text" name="exotiqueComment" placeholder="Commentaire" >
-          <p> ------------------------------------ </p>
+          <input type="text" name="exotiqueComment" placeholder="Commentaire"><br><br>
+          <p> --------------------------------------- </p>
         </div>
         <button type="button" class="add-button" onclick="addProduct('exotiques-column', 'exotiqueTemplate')"> + Ajouter un élément supplémentaire </button>
       </div>
@@ -274,13 +259,6 @@
         <option value="Livraison">Livraison</option>
       </select>
   </div>
-
-      <div id="orderSummary">
-                <h2>Récapitulatif de la commande</h2>
-                <div id="summaryItems"></div>
-                <p>Total estimé : <span id="totalPrice">0 €</span></p>
-            </div>
-
       <button type="submit">Valider la Commande</button>
     </form>
   </div>
