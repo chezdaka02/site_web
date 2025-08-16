@@ -422,10 +422,9 @@
       const variety = product.querySelector('select[name="fruitVariety"]').value;
       const quantity = product.querySelector('input[name="fruitQuantity"]').value;
       const comment = product.querySelector('input[name="fruitComment"]').value;
-      //const price = product.querySelector('input[name="fruitPrice"]').value;
 
       if (type && quantity) {
-        fruits.push({ type, variety, quantity,comment,price });
+        fruits.push({ type, variety, quantity,comment });
       }
     });
 
@@ -435,10 +434,9 @@
       const variety = product.querySelector('select[name="legumeVariety"]').value;
       const quantity = product.querySelector('input[name="legumeQuantity"]').value;
       const comment = product.querySelector('input[name="legumeComment"]').value;
-     // const price = product.querySelector('input[name="legumePrice"]').value;
 
       if (type && quantity) {
-        legumes.push({ type, variety, quantity,comment,price });
+        legumes.push({ type, variety, quantity,comment });
       }
     });
 
@@ -448,7 +446,6 @@
       const variety = product.querySelector('select[name="condimentVariety"]').value;
       const quantity = product.querySelector('input[name="condimentQuantity"]').value;
       const comment = product.querySelector('input[name="condimentComment"]').value;
-      //const price = product.querySelector('input[name="condimentPrice"]').value;
 
       if (type && quantity) {
         condiments.push({ type, variety, quantity,comment });
@@ -461,10 +458,9 @@
       const variety = product.querySelector('select[name="fruitSecVariety"]').value;
       const quantity = product.querySelector('input[name="fruitSecQuantity"]').value;
       const comment = product.querySelector('input[name="fruitSecComment"]').value;
-      //const price = product.querySelector('input[name="fruitSecPrice"]').value;
 
       if (type && quantity) {
-        fruitsSec.push({ type, variety, quantity,comment,price });
+        fruitsSec.push({ type, variety, quantity,comment });
       }
     });
 
@@ -474,10 +470,9 @@
       const variety = product.querySelector('select[name="exotiqueVariety"]').value;
       const quantity = product.querySelector('input[name="exotiqueQuantity"]').value;
       const comment = product.querySelector('input[name="exotiqueComment"]').value;
-     // const price = product.querySelector('input[name="exotiquePrice"]').value;
 
       if (type && quantity) {
-        fruitExotiques.push({ type, variety, quantity,comment,price });
+        fruitExotiques.push({ type, variety, quantity,comment });
       }
     });
 
@@ -512,19 +507,19 @@
       Lieu de retrait : ${pickupLocation}
 
       Fruits :
-      ${fruits.map(fruit => `- ${fruit.type} (${fruit.variety || "Aucune variété"}) : ${fruit.quantity} kg ${fruit.price} ${fruit.comment}`).join('\n')}
+      ${fruits.map(fruit => `- ${fruit.type} (${fruit.variety || "Aucune variété"}) : ${fruit.quantity} kg, commentaire: ${fruit.comment}`).join('\n')}
 
       Légumes :
-      ${legumes.map(legume => `- ${legume.type} (${legume.variety || "Aucune variété"}) : ${legume.quantity} kg ${legume.price} ${legume.comment}`).join('\n')}
+      ${legumes.map(legume => `- ${legume.type} (${legume.variety || "Aucune variété"}) : ${legume.quantity} kg, commentaire: ${legume.comment}`).join('\n')}
 
       Condiments :
-      ${condiments.map(condiment => `- ${condiment.type} (${condiment.variety || "Aucune variété"}) : ${condiment.quantity} kg ${condiment.price} ${condiment.comment}`).join('\n')}
+      ${condiments.map(condiment => `- ${condiment.type} (${condiment.variety || "Aucune variété"}) : ${condiment.quantity} kg, commentaire: ${condiment.comment}`).join('\n')}
 
       Fruits Sec:
-      ${fruitsSec.map(sec => `- ${sec.type} (${sec.variety || "Aucune variété"}) : ${sec.quantity} kg ${sec.price} ${sec.comment}`).join('\n')}
+      ${fruitsSec.map(sec => `- ${sec.type} (${sec.variety || "Aucune variété"}) : ${sec.quantity} kg, commentaire: ${sec.comment}`).join('\n')}
 
       Fruits Exotiques:
-      ${fruitExotiques.map(exotique => `- ${exotique.type} (${exotique.variety || "Aucune variété"}) : ${exotique.quantity} kg ${exotique.price} ${exotique.comment}`).join('\n')}
+      ${fruitExotiques.map(exotique => `- ${exotique.type} (${exotique.variety || "Aucune variété"}) : ${exotique.quantity} kg, commentaire: ${exotique.comment}`).join('\n')}
     `;
 
     const templateParams = {
