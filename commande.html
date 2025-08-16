@@ -303,20 +303,6 @@
         });
       });
     });
-
-    function updatePrice(varietySelect) {
-        const selectedOption = varietySelect.options[varietySelect.selectedIndex];
-        const pricePerKg = parseFloat(selectedOption.dataset.price || 0);
-        const card = varietySelect.closest('.product-card');
-        const quantityInput = card.querySelector('.quantity');
-        const priceSpan = card.querySelector('.price-value');
-    
-        quantityInput.addEventListener('input', () => {
-            const qty = parseFloat(quantityInput.value || 0);
-            priceSpan.textContent = (qty * pricePerKg).toFixed(2);
-        });
-    }
-
    
     function updateVarieties(selectElement, type) {
       const productType = selectElement.value;
@@ -330,13 +316,7 @@
           Object.keys(varieties[type][productType]).forEach(variety => {
               const option = document.createElement('option');
               option.value = variety;
-              const price = varieties[type][productType][variety];
-              if (price) {
-                  option.textContent = `${variety} (${price}€/kg)`;
-                  option.dataset.price = price; // stocke le prix dans l’option
-              } else {
-                  option.textContent = variety;
-              }
+              option.textContent = `${variety} (${price}€/kg)`;
               varietySelect.appendChild(option);
           });
       }
