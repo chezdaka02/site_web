@@ -5,7 +5,6 @@ const varieties = {
     "Acerola": { "Nature": 18 },
     "Ananas": { "Cayenne lisse": 4, "Queen Victoria": 5, "Pain de sucre": 6 },
     "Avocat": { "Hass": 8, "Fuerte": 7 },
-    "Baie de goji": { "Séchée": 12 },
     "Baies": { "Myrtilles": 8, "Framboises": 10, "Mûres": 9 },
     "Banane": { "Banane plantain": 2, "Cavendish": 3 },
     "Canistel": { "Nature": 14 },
