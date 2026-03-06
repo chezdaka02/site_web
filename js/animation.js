@@ -42,18 +42,6 @@ function showSlide(index){
   dots[current].classList.add("active");
 }
 
-/* boutons */
-
-document.querySelector(".next").onclick = ()=>{
-  let next = (current + 1) % slides.length;
-  showSlide(next);
-};
-
-document.querySelector(".prev").onclick = ()=>{
-  let prev = (current - 1 + slides.length) % slides.length;
-  showSlide(prev);
-};
-
 showSlide(0);
 
 });
