@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
 let slides = document.querySelectorAll(".slide");
 let dotsContainer = document.querySelector(".slider-dots");
 let current = 0;
+let autoSlide;
 
 /* création des points */
 slides.forEach((_, index)=>{
