@@ -16,25 +16,45 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(rotateImages, 3000);
 });
 
-document.querySelectorAll(".carousel-wrapper").forEach(wrapper => {
+document.addEventListener("DOMContentLoaded", function(){
 
-  const track = wrapper.querySelector(".carousel-track");
-  const leftBtn = wrapper.querySelector(".left");
-  const rightBtn = wrapper.querySelector(".right");
+let slides = document.querySelectorAll(".slide");
+let dotsContainer = document.querySelector(".slider-dots");
+let current = 0;
 
-  rightBtn.addEventListener("click", () => {
-    track.scrollBy({
-      left: 300,
-      behavior: "smooth"
-    });
-  });
+/* création des points */
+slides.forEach((_, index)=>{
+  let dot = document.createElement("span");
+  dot.addEventListener("click", ()=>showSlide(index));
+  dotsContainer.appendChild(dot);
+});
 
-  leftBtn.addEventListener("click", () => {
-    track.scrollBy({
-      left: -300,
-      behavior: "smooth"
-    });
-  });
+let dots = document.querySelectorAll(".slider-dots span");
+
+function showSlide(index){
+
+  slides[current].classList.remove("active");
+  dots[current].classList.remove("active");
+
+  current = index;
+
+  slides[current].classList.add("active");
+  dots[current].classList.add("active");
+}
+
+/* boutons */
+
+document.querySelector(".next").onclick = ()=>{
+  let next = (current + 1) % slides.length;
+  showSlide(next);
+};
+
+document.querySelector(".prev").onclick = ()=>{
+  let prev = (current - 1 + slides.length) % slides.length;
+  showSlide(prev);
+};
+
+showSlide(0);
 
 });
 
