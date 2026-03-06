@@ -16,18 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(rotateImages, 3000);
 });
 
-  // Promotions dynamiques
-  const promotions = [
-    "10% de réduction sur les agrumes cette semaine !",
-    "Achetez 1, obtenez 1 gratuit sur les pommes !",
-    "Offre spéciale : 5€ de réduction pour tout achat supérieur à 50€ !"
-  ];
-  let promotionIndex = 0;
+document.querySelectorAll(".carousel-wrapper").forEach(wrapper => {
 
-  function updatePromotions() {
-    const promoCard = document.querySelector(".promo p");
-    promoCard.textContent = promotions[promotionIndex];
-    promotionIndex = (promotionIndex + 1) % promotions.length;
-  }
+  const track = wrapper.querySelector(".carousel-track");
+  const leftBtn = wrapper.querySelector(".left");
+  const rightBtn = wrapper.querySelector(".right");
 
-  setInterval(updatePromotions, 5000); // Change la promotion toutes les 5 secondes
+  rightBtn.addEventListener("click", () => {
+    track.scrollBy({
+      left: 300,
+      behavior: "smooth"
+    });
+  });
+
+  leftBtn.addEventListener("click", () => {
+    track.scrollBy({
+      left: -300,
+      behavior: "smooth"
+    });
+  });
+
+});
+
+// Promotions dynamiques
+const promotions = [
+"10% de réduction sur les agrumes cette semaine !",
+"Achetez 1, obtenez 1 gratuit sur les pommes !",
+"Offre spéciale : 5€ de réduction pour tout achat supérieur à 50€ !"
+];
+let promotionIndex = 0;
+
+function updatePromotions() {
+const promoCard = document.querySelector(".promo p");
+promoCard.textContent = promotions[promotionIndex];
+promotionIndex = (promotionIndex + 1) % promotions.length;
+}
+
+setInterval(updatePromotions, 5000); // Change la promotion toutes les 5 secondes
