@@ -25,12 +25,15 @@ let current = 0;
 /* création des points */
 slides.forEach((_, index)=>{
   let dot = document.createElement("span");
-  dot.addEventListener("click", ()=>showSlide(index));
+  dot.addEventListener("click", ()=>{
+    showSlide(index);
+    resetAutoSlide();
+  });
   dotsContainer.appendChild(dot);
 });
 
 let dots = document.querySelectorAll(".slider-dots span");
-
+    
 function showSlide(index){
 
   slides[current].classList.remove("active");
@@ -42,7 +45,20 @@ function showSlide(index){
   dots[current].classList.add("active");
 }
 
+function startAutoSlide(){
+  autoSlide = setInterval(()=>{
+    let next = (current + 1) % slides.length;
+    showSlide(next);
+  }, 5000); // 5 secondes
+}  
+
+function resetAutoSlide(){
+  clearInterval(autoSlide);
+  startAutoSlide();
+}
+
 showSlide(0);
+startAutoSlide();
 
 });
 
