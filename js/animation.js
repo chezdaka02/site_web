@@ -50,7 +50,7 @@ function startAutoSlide(){
   autoSlide = setInterval(()=>{
     let next = (current + 1) % slides.length;
     showSlide(next);
-  }, 5000); // 5 secondes
+  }, 10000); // 10 secondes
 }  
 
 function resetAutoSlide(){
